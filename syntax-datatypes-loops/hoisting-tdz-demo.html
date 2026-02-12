@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hoisting & Temporal Dead Zone Demo</title>
+  </head>
+  <body>
+    <h1>Hoisting & TDZ (var vs let vs const)</h1>
+    <p>👉 Open Console (F12) for detailed understanding.</p>
+
+    <div id="result"></div>
+
+    <script>
+      // Utility function to print on screen
+      function print(msg) {
+        document.getElementById("result").innerHTML += msg + "<br>";
+      }
+
+      print("===== HOISTING DEMO START =====");
+      console.log("===== HOISTING DEMO START =====");
+
+      // =====================================================
+      // VAR HOISTING
+      // =====================================================
+      print("<h3>VAR Example</h3>");
+
+      // Access before declaration
+      print("Value of tea before declaration: " + tea);
+      console.log("Value of tea before declaration:", tea);
+
+      var tea = "Masala Chai";
+
+      print("Value of tea after declaration: " + tea);
+      console.log("Value of tea after declaration:", tea);
+
+      // =====================================================
+      // LET HOISTING (TDZ)
+      // =====================================================
+      print("<h3>LET Example</h3>");
+
+      try {
+        // This will throw error
+        print("Value of city before declaration: " + city);
+        console.log(city);
+      } catch (err) {
+        print("Error: " + err.message);
+        console.log("Error:", err.message);
+      }
+
+      let city = "Bengaluru";
+
+      print("Value of city after declaration: " + city);
+      console.log("Value of city after declaration:", city);
+
+      // =====================================================
+      // CONST HOISTING (TDZ)
+      // =====================================================
+      print("<h3>CONST Example</h3>");
+
+      try {
+        print("Value of country before declaration: " + country);
+      } catch (err) {
+        print("Error: " + err.message);
+        console.log("Error:", err.message);
+      }
+
+      const country = "India";
+
+      print("Value of country after declaration: " + country);
+
+      // =====================================================
+      // MEMORY VS EXECUTION UNDERSTANDING
+      // =====================================================
+      print("<h3>Key Observation</h3>");
+      print("var → accessible before declaration but undefined");
+      print("let/const → in Temporal Dead Zone until line executes");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>var vs let vs const Demo</title>
+  </head>
+  <body>
+    <h1>Understanding var, let and const</h1>
+    <p>👉 Open Console (F12 → Console) to see outputs.</p>
+
+    <script>
+      // =====================================================
+      // VAR EXAMPLE
+      // Function scoped, can re-declare & re-assign
+      // Older way (before ES6)
+      // =====================================================
+
+      console.log("===== VAR EXAMPLE =====");
+
+      var shopName = "Chai Point";
+      console.log("Initial:", shopName);
+
+      // Re-assign allowed
+      shopName = "Tea Time";
+      console.log("After re-assign:", shopName);
+
+      // Re-declare also allowed (dangerous sometimes)
+      var shopName = "Irani Cafe";
+      console.log("After re-declare:", shopName);
+
+      // =====================================================
+      // LET EXAMPLE
+      // Block scoped, can re-assign but NOT re-declare
+      // Modern replacement for var
+      // =====================================================
+
+      console.log("===== LET EXAMPLE =====");
+
+      let city = "Mumbai";
+      console.log("Initial:", city);
+
+      // Re-assign allowed
+      city = "Pune";
+      console.log("After re-assign:", city);
+
+      // ❌ Uncomment below → will give error
+      // let city = "Delhi";
+
+      // =====================================================
+      // CONST EXAMPLE
+      // Block scoped, cannot re-assign, cannot re-declare
+      // Value should remain fixed
+      // =====================================================
+
+      console.log("===== CONST EXAMPLE =====");
+
+      const country = "India";
+      console.log("Country:", country);
+
+      // ❌ Not allowed
+      // country = "USA";
+
+      // =====================================================
+      // BLOCK SCOPE DIFFERENCE
+      // =====================================================
+
+      console.log("===== BLOCK TEST =====");
+
+      if (true) {
+        var a = 10; // escapes block
+        let b = 20; // stays inside block
+        const c = 30; // stays inside block
+
+        console.log("Inside block:", a, b, c);
+      }
+
+      console.log("Outside block, var:", a);
+
+      // ❌ Will give error
+      // console.log(b);
+      // console.log(c);
+
+      // =====================================================
+      // REAL LIFE STYLE EXAMPLE
+      // =====================================================
+
+      console.log("===== REAL LIFE EXAMPLE =====");
+
+      const gstPercent = 18; // fixed across billing
+      let billAmount = 200; // can change per customer
+
+      billAmount = 350;
+
+      console.log("Bill:", billAmount);
+      console.log("GST:", gstPercent);
+    </script>
+  </body>
+</html>

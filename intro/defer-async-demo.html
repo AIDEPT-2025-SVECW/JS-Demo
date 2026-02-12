@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Defer vs Async Demo</title>
+
+    <!-- ===================================================== -->
+    <!-- ASYNC SCRIPT                                          -->
+    <!-- Downloads in parallel                                -->
+    <!-- Executes immediately when download finishes           -->
+    <!-- Does NOT wait for HTML parsing                        -->
+    <!-- Order is NOT guaranteed                               -->
+    <!-- ===================================================== -->
+    <script src="async-script.js" async></script>
+
+    <!-- ===================================================== -->
+    <!-- DEFER SCRIPT                                          -->
+    <!-- Downloads in parallel                                -->
+    <!-- Executes AFTER complete HTML parsing                  -->
+    <!-- Order is preserved                                    -->
+    <!-- ===================================================== -->
+    <script src="defer-script.js" defer></script>
+  </head>
+
+  <body>
+    <h1>Understanding defer and async</h1>
+
+    <p>
+      Open browser console → Right Click → Inspect → Console to clearly see
+      execution order.
+    </p>
+
+    <p id="output">Waiting for scripts...</p>
+  </body>
+</html>

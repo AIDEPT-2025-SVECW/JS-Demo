@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Linking Demot</title>
+
+    <!-- ===================================================== -->
+    <!-- METHOD 2: INTERNAL JAVASCRIPT                        -->
+    <!-- JS is written inside the same HTML file              -->
+    <!-- ===================================================== -->
+    <script>
+      // This function runs when user clicks the button
+      function showCity() {
+        // Change the city name and see output change
+        let city = "Hyderabad";
+
+        // Find the element by id and change text
+        document.getElementById("cityOutput").innerText =
+          "Welcome to " + city + "!";
+      }
+    </script>
+
+    <!-- ===================================================== -->
+    <!-- METHOD 3: EXTERNAL JAVASCRIPT                        -->
+    <!-- JS is written in another file (external.js)          -->
+    <!-- Keeps HTML clean & reusable                          -->
+    <!-- ===================================================== -->
+    <script src="external.js" defer></script>
+  </head>
+
+  <body>
+    <h1>Learning JavaScript Linking Methods</h1>
+
+    <!-- ===================================================== -->
+    <!-- METHOD 1: INLINE JAVASCRIPT                          -->
+    <!-- JS written directly inside HTML tag                  -->
+    <!-- Usually used for very small quick actions            -->
+    <!-- ===================================================== -->
+    <h2>1. Inline JavaScript</h2>
+    <button onclick="alert('Namaste! Welcome to our Tea Shop ☕')">
+      Click for Greeting
+    </button>
+
+    <hr />
+
+    <!-- INTERNAL JS DEMO -->
+    <h2>2. Internal JavaScript</h2>
+    <button onclick="showCity()">Show City</button>
+    <p id="cityOutput">City name will appear here</p>
+
+    <hr />
+
+    <!-- EXTERNAL JS DEMO -->
+    <h2>3. External JavaScript</h2>
+    <button onclick="showCricketCaptain()">Show Captain</button>
+    <p id="captainOutput">Captain name will appear here</p>
+  </body>
+</html>
