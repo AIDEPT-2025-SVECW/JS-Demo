@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Object Learning</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .box {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Object Operations</h1>
+    <p>👉 Open console (F12) for detailed logs.</p>
+
+    <div class="box" id="basic"></div>
+    <div class="box" id="medium"></div>
+
+    <script>
+      // =============================================
+      // BASIC LEVEL OPERATIONS
+      // =============================================
+
+      // Suppose this is a customer in an Indian store
+      let customer = {
+        name: "JP",
+        city: "Hyderabad",
+        balance: 500,
+      };
+
+      // Access property
+      let name = customer.name;
+
+      // Update property
+      customer.balance = 800;
+
+      // Add new property
+      customer.phone = "9876543210";
+
+      // Delete property
+      delete customer.city;
+
+      console.log("Customer:", customer);
+
+      document.getElementById("basic").innerHTML = `
+      <h2>Basic Operations</h2>
+      Name: ${customer.name} <br>
+      Balance: ${customer.balance} <br>
+      Phone: ${customer.phone}
+    `;
+
+      // =============================================
+      // MEDIUM LEVEL OPERATIONS
+      // =============================================
+
+      // Product in ice cream shop
+      let product = {
+        name: "Vanilla Cone",
+        price: 20,
+        stock: 50,
+      };
+
+      // Check if property exists
+      let hasPrice = "price" in product;
+
+      // Get all keys
+      let keys = Object.keys(product);
+
+      // Get all values
+      let values = Object.values(product);
+
+      // Convert object to array of entries
+      let entries = Object.entries(product);
+
+      // Clone object (create new copy)
+      let newProduct = { ...product };
+
+      // Modify clone
+      newProduct.price = 25;
+
+      console.log("Original:", product);
+      console.log("Clone:", newProduct);
+
+      document.getElementById("medium").innerHTML = `
+      <h2>Medium Operations</h2>
+      Has price?: ${hasPrice} <br>
+      Keys: ${keys.join(", ")} <br>
+      Values: ${values.join(", ")} <br>
+      New Price in Clone: ${newProduct.price} <br>
+      Old Price Still: ${product.price}
+    `;
+    </script>
+  </body>
+</html>

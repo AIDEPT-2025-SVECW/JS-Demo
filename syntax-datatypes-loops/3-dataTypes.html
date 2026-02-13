@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>typeof demo</title>
+  </head>
+  <body>
+    <h2>Open console to see results</h2>
+
+    <script>
+      let name = "Pradeep";
+      let age = 30;
+      let notDefined = NaN;
+      let isOwner = true;
+      let data = null;
+      let notAssigned;
+      let person = { city: "Hyderabad" };
+      let arr = [1, 2, 3];
+      let greet = function () {};
+
+      console.log(typeof name); // string
+      console.log(typeof age); // number
+      console.log(typeof notDefined); // number (NaN is of type number)
+      console.log(typeof isOwner); // boolean
+      console.log(typeof data); // object (famous JS bug)
+      console.log(typeof notAssigned); // undefined
+      console.log(typeof person); // object
+      console.log(typeof arr); // object
+      console.log(typeof greet); // function
+    </script>
+  </body>
+</html>

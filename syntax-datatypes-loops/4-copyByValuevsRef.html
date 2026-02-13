@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Copy by Value vs Reference</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .box {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>JavaScript Memory Concept Demo</h1>
+    <p>Open console also (F12) to see detailed output.</p>
+
+    <div class="box" id="valueDemo"></div>
+    <div class="box" id="referenceDemo"></div>
+
+    <script>
+      // ============================================
+      // PART 1 → COPY BY VALUE (PRIMITIVE TYPES)
+      // ============================================
+
+      // Suppose Ram has money in his pocket
+      let ramMoney = 500;
+
+      // Shyam copies the value from Ram
+      let shyamMoney = ramMoney;
+
+      // Now Shyam spends some money
+      shyamMoney = 300;
+
+      // Will Ram's money change? NO
+      // Because numbers are copied by VALUE (separate)
+
+      console.log("Ram Money:", ramMoney); // 500
+      console.log("Shyam Money:", shyamMoney); // 300
+
+      document.getElementById("valueDemo").innerHTML = `
+      <h2>Copy By Value</h2>
+      Ram Money: ${ramMoney} <br>
+      Shyam Money: ${shyamMoney}
+    `;
+
+      // ============================================
+      // PART 2 → COPY BY REFERENCE (OBJECTS)
+      // ============================================
+
+      // Ram owns a bike
+      let ramBike = { brand: "Hero" };
+
+      // Shyam gets the reference (same bike)
+      let shyamBike = ramBike;
+
+      // Shyam changes the bike brand
+      shyamBike.brand = "Honda";
+
+      // Will Ram's bike change? YES 😲
+      // Because both point to same object in memory
+
+      console.log("Ram Bike:", ramBike.brand); // Honda
+      console.log("Shyam Bike:", shyamBike.brand); // Honda
+
+      document.getElementById("referenceDemo").innerHTML = `
+      <h2>Copy By Reference</h2>
+      Ram Bike: ${ramBike.brand} <br>
+      Shyam Bike: ${shyamBike.brand}
+    `;
+
+      // ============================================
+      // BONUS → HOW TO CREATE REAL COPY OF OBJECT
+      // ============================================
+
+      // Spread operator creates NEW object
+      let originalShop = { iceCream: "Vanilla" };
+
+      let branchShop = { ...originalShop };
+
+      branchShop.iceCream = "Chocolate";
+
+      console.log("Original Shop:", originalShop.iceCream); // Vanilla
+      console.log("Branch Shop:", branchShop.iceCream); // Chocolate
+
+      //Object.assign also creates a new object
+      let anotherBranch = Object.assign({}, originalShop);
+      anotherBranch.iceCream = "Strawberry";
+      console.log("Original Shop:", originalShop.iceCream); // Vanilla
+      console.log("Another Branch:", anotherBranch.iceCream); // Strawberry
+    </script>
+  </body>
+</html>

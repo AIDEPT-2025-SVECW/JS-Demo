@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Array Learning</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .box {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Array Operations</h1>
+    <p>👉 Open console (F12) for extra understanding.</p>
+
+    <div class="box" id="basic"></div>
+    <div class="box" id="medium"></div>
+
+    <script>
+      // =============================================
+      // BASIC LEVEL OPERATIONS
+      // =============================================
+
+      // Suppose we are storing popular Indian cities
+      let cities = ["Hyderabad", "Chennai", "Mumbai"];
+
+      // add item at END
+      cities.push("Delhi");
+
+      // add item at START
+      cities.unshift("Bengaluru");
+
+      // remove LAST item
+      cities.pop();
+
+      // remove FIRST item
+      cities.shift();
+
+      // access item using index
+      let firstCity = cities[0];
+
+      // find length of array
+      let totalCities = cities.length;
+
+      console.log("Cities:", cities);
+
+      document.getElementById("basic").innerHTML = `
+      <h2>Basic Operations</h2>
+      Cities: ${cities.join(", ")} <br>
+      First City: ${firstCity} <br>
+      Total Cities: ${totalCities}
+    `;
+
+      // =============================================
+      // MEDIUM LEVEL OPERATIONS
+      // =============================================
+
+      // Ice cream prices in a shop
+      let prices = [10, 20, 30, 40];
+
+      // map → create new array after modifying each value
+      // suppose GST added 5 rupees to each
+      let newPrices = prices.map((price) => price + 5);
+
+      // filter → get items based on condition
+      // find items greater than 20
+      let costly = prices.filter((price) => price > 20);
+
+      // find → get FIRST matching value
+      let firstCostly = prices.find((price) => price > 20);
+
+      // includes → check if value exists
+      let hasThirty = prices.includes(30);
+
+      // reduce → combine all values into one
+      // total sales
+      let total = prices.reduce((sum, price) => sum + price, 0);
+
+      console.log("Original Prices:", prices);
+      console.log("New Prices:", newPrices);
+
+      document.getElementById("medium").innerHTML = `
+      <h2>Medium Operations</h2>
+      Original Prices: ${prices.join(", ")} <br>
+      After GST: ${newPrices.join(", ")} <br>
+      Costly Items (>20): ${costly.join(", ")} <br>
+      First Costly Item: ${firstCostly} <br>
+      Has 30?: ${hasThirty} <br>
+      Total Sum: ${total}
+    `;
+    </script>
+  </body>
+</html>

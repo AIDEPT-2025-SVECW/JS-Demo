@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Control Structures Demo</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .box {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Control Structures</h1>
+    <p>👉 Open console (F12) for extra clarity.</p>
+
+    <div class="box" id="ifelse"></div>
+    <div class="box" id="switch"></div>
+    <div class="box" id="while"></div>
+    <div class="box" id="for"></div>
+    <div class="box" id="foreach"></div>
+
+    <script>
+      // =================================================
+      // IF ELSE → decision making
+      // =================================================
+
+      // Suppose customer age for movie ticket
+      let age = 16;
+      let ticketMessage;
+
+      // if condition true → first block runs
+      // else → alternative block
+      if (age >= 18) {
+        ticketMessage = "Eligible for adult ticket";
+      } else {
+        ticketMessage = "Child ticket";
+      }
+
+      console.log(ticketMessage);
+
+      document.getElementById("ifelse").innerHTML = `
+      <h2>If Else</h2>
+      Age: ${age} <br>
+      Result: ${ticketMessage}
+    `;
+
+      // =================================================
+      // SWITCH → many choices for one value
+      // =================================================
+
+      // Day number in India railway booking
+      let day = 3;
+      let dayName;
+
+      switch (day) {
+        case 1:
+          dayName = "Monday";
+          break;
+        case 2:
+          dayName = "Tuesday";
+          break;
+        case 3:
+          dayName = "Wednesday";
+          break;
+        default:
+          dayName = "Invalid day";
+      }
+
+      console.log(dayName);
+
+      document.getElementById("switch").innerHTML = `
+      <h2>Switch</h2>
+      Day Number: ${day} <br>
+      Day Name: ${dayName}
+    `;
+
+      // =================================================
+      // WHILE → repeat until condition fails
+      // =================================================
+
+      // Print token numbers in a bank
+      let token = 1;
+      let tokenList = "";
+
+      while (token <= 5) {
+        tokenList += "Token " + token + " ";
+        token++; // important → otherwise infinite loop
+      }
+
+      console.log(tokenList);
+
+      document.getElementById("while").innerHTML = `
+      <h2>While Loop</h2>
+      ${tokenList}
+    `;
+
+      // =================================================
+      // FOR → known number of repetitions
+      // =================================================
+
+      // Suppose we give 5 students hall tickets
+      let students = ["Asha", "Ravi", "Kiran", "Meena", "Arjun"];
+      let result = "";
+
+      for (let i = 0; i < students.length; i++) {
+        result += students[i] + " ";
+      }
+
+      console.log(result);
+
+      document.getElementById("for").innerHTML = `
+      <h2>For Loop</h2>
+      Students: ${result}
+    `;
+
+      // =================================================
+      // FOREACH → modern easy loop for arrays
+      // =================================================
+
+      let items = ["Samosa", "Tea", "Coffee"];
+      let list = "";
+
+      // forEach gives each element one by one
+      items.forEach(function (item) {
+        list += item + " ";
+      });
+
+      console.log(list);
+
+      document.getElementById("foreach").innerHTML = `
+      <h2>forEach</h2>
+      Items: ${list}
+    `;
+    </script>
+  </body>
+</html>
