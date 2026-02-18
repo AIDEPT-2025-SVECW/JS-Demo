@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Type Coercion Explained</title>
+    <style>
+      body {
+        font-family: Arial;
+        line-height: 1.6;
+      }
+      h3 {
+        color: darkblue;
+      }
+      .section {
+        margin-bottom: 25px;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript Type Coercion & Conversion Rules</h2>
+
+    <button onclick="runDemo()">Show Examples</button>
+
+    <div id="output"></div>
+
+    <script>
+      function runDemo() {
+        let content = "";
+
+        // =====================================================
+        // RULE 1: + Operator with String
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 1: '+' with String → String Wins</h3>
+    <p>
+    The '+' operator is special. It can mean:
+    <br>1. Addition
+    <br>2. String Concatenation
+    <br><br>
+    If one operand is a string, JavaScript converts the other value into string.
+    </p>
+
+    <pre>
+"5" + 2 = ${"5" + 2}
+Type: ${typeof ("5" + 2)}
+    </pre>
+    </div>
+    `;
+
+        // =====================================================
+        // RULE 2: Other Math Operators Convert to Number
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 2: '-', '*', '/' → Number Conversion</h3>
+    <p>
+    Operators like -, *, / only work with numbers.
+    So JavaScript converts both operands into numbers before performing the operation.
+    </p>
+
+    <pre>
+"5" - 2 = ${"5" - 2}
+"5" * "2" = ${"5" * "2"}
+Type of result: ${typeof ("5" - 2)}
+    </pre>
+    </div>
+    `;
+
+        // =====================================================
+        // RULE 3: Boolean to Number
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 3: Boolean → Number</h3>
+    <p>
+    When boolean values are used in mathematical operations:
+    <br>true becomes 1
+    <br>false becomes 0
+    </p>
+
+    <pre>
+true + 1 = ${true + 1}
+false + 5 = ${false + 5}
+    </pre>
+    </div>
+    `;
+
+        // =====================================================
+        // RULE 4: Loose Equality ==
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 4: Loose Equality (==) Performs Coercion</h3>
+    <p>
+    The '==' operator compares values after converting them to the same type.
+    This may produce surprising results.
+    </p>
+
+    <pre>
+5 == "5" → ${5 == "5"}
+false == 0 → ${false == 0}
+"" == 0 → ${"" == 0}
+    </pre>
+    </div>
+    `;
+
+        // =====================================================
+        // RULE 5: Strict Equality ===
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 5: Strict Equality (===) No Conversion</h3>
+    <p>
+    The '===' operator checks both value and type.
+    It does NOT perform type conversion.
+    </p>
+
+    <pre>
+5 === "5" → ${5 === "5"}
+    </pre>
+    </div>
+    `;
+
+        // =====================================================
+        // RULE 6: null and undefined
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 6: null and undefined Behavior</h3>
+    <p>
+    Special cases:
+    <br>null becomes 0 in numeric operations.
+    <br>undefined becomes NaN in numeric operations.
+    <br>null == undefined is true.
+    </p>
+
+    <pre>
+null == undefined → ${null == undefined}
+null + 1 → ${null + 1}
+undefined + 1 → ${undefined + 1}
+    </pre>
+    </div>
+    `;
+
+        // =====================================================
+        // RULE 7: Array and Object Coercion
+        // =====================================================
+
+        content += `
+    <div class="section">
+    <h3>Rule 7: Arrays Convert to String First</h3>
+    <p>
+    Arrays are first converted to string.
+    Then string is converted to number (if needed).
+    </p>
+
+    <pre>
+[] == 0 → ${[] == 0}
+[1] == 1 → ${[1] == 1}
+true + "5" → ${true + "5"}
+    </pre>
+    </div>
+    `;
+
+        document.getElementById("output").innerHTML = content;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Class & Object Demo</title>
+  </head>
+  <body>
+    <h2>JavaScript Class and Object Demonstration</h2>
+
+    <button onclick="createStudent()">Create Student Object</button>
+
+    <p id="output"></p>
+
+    <script>
+      // Step 1: Define a Class
+      class Student {
+        // Constructor method (runs when object is created)
+        constructor(name, branch, year) {
+          this.name = name; // Property
+          this.branch = branch; // Property
+          this.year = year; // Property
+        }
+
+        // Method inside class
+        getDetails() {
+          return (
+            "Name: " +
+            this.name +
+            "<br>Branch: " +
+            this.branch +
+            "<br>Year: " +
+            this.year
+          );
+        }
+      }
+
+      // Step 2: Create Object from Class
+      function createStudent() {
+        // Creating object using 'new' keyword
+        let student1 = new Student("Rahul", "Computer Science", 3);
+
+        // Calling method of object
+        document.getElementById("output").innerHTML = student1.getDetails();
+      }
+    </script>
+  </body>
+</html>

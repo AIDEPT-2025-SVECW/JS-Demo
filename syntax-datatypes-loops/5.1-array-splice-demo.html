@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript splice() Demonstration</title>
+  </head>
+  <body>
+    <h2>JavaScript splice() Complete Demonstration</h2>
+    <button onclick="runDemo()">Run All splice Examples</button>
+
+    <pre id="output"></pre>
+
+    <script>
+      function runDemo() {
+        let result = "";
+
+        // ---------------------------------------------------------
+        // 1️⃣ Removing Elements
+        // ---------------------------------------------------------
+        let arr1 = ["Apple", "Banana", "Mango", "Orange"];
+
+        // Remove 2 elements starting from index 1
+        let removed1 = arr1.splice(1, 2);
+
+        result += "1. Remove Elements\n";
+        result += "Removed Items: " + removed1 + "\n";
+        result += "Modified Array: " + arr1 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 2️⃣ Adding Elements (No Deletion)
+        // ---------------------------------------------------------
+        let arr2 = ["Red", "Blue", "Green"];
+
+        // At index 1, delete 0 elements, insert "Yellow"
+        arr2.splice(1, 0, "Yellow");
+
+        result += "2. Add Elements\n";
+        result += "Modified Array: " + arr2 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 3️⃣ Replacing Elements
+        // ---------------------------------------------------------
+        let arr3 = ["HTML", "CSS", "JavaScript"];
+
+        // Replace 1 element at index 2 with "React"
+        arr3.splice(2, 1, "React");
+
+        result += "3. Replace Element\n";
+        result += "Modified Array: " + arr3 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 4️⃣ Removing All Elements from Index
+        // ---------------------------------------------------------
+        let arr4 = [10, 20, 30, 40, 50];
+
+        // Remove everything from index 2
+        arr4.splice(2);
+
+        result += "4. Remove All After Index\n";
+        result += "Modified Array: " + arr4 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 5️⃣ Using Negative Index
+        // ---------------------------------------------------------
+        let arr5 = [1, 2, 3, 4, 5];
+
+        // -2 means start from second last element
+        arr5.splice(-2, 1);
+
+        result += "5. Negative Index Example\n";
+        result += "Modified Array: " + arr5 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 6️⃣ Insert Multiple Elements
+        // ---------------------------------------------------------
+        let arr6 = ["A", "B", "E"];
+
+        // Insert C and D at index 2
+        arr6.splice(2, 0, "C", "D");
+
+        result += "6. Insert Multiple Elements\n";
+        result += "Modified Array: " + arr6 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 7️⃣ Replace Multiple Elements
+        // ---------------------------------------------------------
+        let arr7 = [100, 200, 300, 400];
+
+        // Replace 2 elements starting at index 1
+        arr7.splice(1, 2, 250, 350);
+
+        result += "7. Replace Multiple Elements\n";
+        result += "Modified Array: " + arr7 + "\n\n";
+
+        // ---------------------------------------------------------
+        // 8️⃣ Return Value of splice()
+        // ---------------------------------------------------------
+        let arr8 = ["Pen", "Pencil", "Eraser"];
+
+        // Remove 1 element at index 0
+        let removedItems = arr8.splice(0, 1);
+
+        result += "8. splice() Return Value\n";
+        result += "Removed Items: " + removedItems + "\n";
+        result += "Modified Array: " + arr8 + "\n\n";
+
+        // Display all results on screen
+        document.getElementById("output").textContent = result;
+      }
+    </script>
+  </body>
+</html>
