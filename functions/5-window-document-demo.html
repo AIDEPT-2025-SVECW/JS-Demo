@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Window and Document Objects Demo</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        margin: 40px;
+      }
+
+      button {
+        margin: 5px;
+        padding: 8px;
+      }
+
+      #box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>JavaScript Window & Document Object Demonstration</h2>
+    <p>
+      Click the buttons below to see different JavaScript functions in action.
+    </p>
+
+    <h3>Output Area</h3>
+    <div id="output">Results will appear here...</div>
+
+    <hr />
+
+    <h3>Window Object Examples</h3>
+
+    <button onclick="showAlert()">Alert Message</button>
+    <button onclick="askName()">Prompt Example</button>
+    <button onclick="confirmAction()">Confirm Example</button>
+    <button onclick="showURL()">Show Current URL</button>
+    <button onclick="showWindowSize()">Window Size</button>
+    <button onclick="openNewTab()">Open New Tab</button>
+    <button onclick="scrollPage()">Scroll Page</button>
+
+    <hr />
+
+    <h3>Document Object Examples</h3>
+
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeColor()">Change Background</button>
+    <button onclick="createElementDemo()">Create New Element</button>
+    <button onclick="removeElementDemo()">Remove Element</button>
+    <button onclick="showTitle()">Show Page Title</button>
+
+    <hr />
+
+    <h3>DOM Element Example</h3>
+
+    <div id="box">Demo Box</div>
+    <button onclick="hideBox()">Hide Box</button>
+    <button onclick="showBox()">Show Box</button>
+
+    <script>
+      // -------------------------------
+      // WINDOW OBJECT EXAMPLES
+      // -------------------------------
+
+      // Show alert message
+      function showAlert() {
+        window.alert("Welcome! This is an alert example.");
+      }
+
+      // Prompt example
+      function askName() {
+        let name = window.prompt("Enter your name");
+
+        document.getElementById("output").innerHTML =
+          "Hello " + name + ", welcome!";
+      }
+
+      // Confirm dialog
+      function confirmAction() {
+        let result = window.confirm("Do you like JavaScript?");
+
+        document.getElementById("output").innerHTML =
+          "User response: " + result;
+      }
+
+      // Show current page URL
+      function showURL() {
+        document.getElementById("output").innerHTML =
+          "Current URL: " + window.location.href;
+      }
+
+      // Show window size
+      function showWindowSize() {
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        document.getElementById("output").innerHTML =
+          "Window size: " + width + " x " + height;
+      }
+
+      // Open new tab
+      function openNewTab() {
+        window.open("https://www.wikipedia.org");
+      }
+
+      // Scroll page
+      function scrollPage() {
+        window.scrollTo(0, 500);
+      }
+
+      // -------------------------------
+      // DOCUMENT OBJECT EXAMPLES
+      // -------------------------------
+
+      // Change text using getElementById
+      function changeText() {
+        document.getElementById("output").innerHTML =
+          "Text changed using document.getElementById()";
+      }
+
+      // Change background color
+      function changeColor() {
+        document.body.style.backgroundColor = "lightyellow";
+      }
+
+      // Create new HTML element
+      function createElementDemo() {
+        let newPara = document.createElement("p");
+
+        newPara.innerHTML = "This paragraph was created using createElement()";
+
+        document.body.appendChild(newPara);
+      }
+
+      // Remove element
+      function removeElementDemo() {
+        let element = document.getElementById("box");
+
+        element.remove();
+      }
+
+      // Show page title
+      function showTitle() {
+        document.getElementById("output").innerHTML =
+          "Page Title: " + document.title;
+      }
+
+      // -------------------------------
+      // DOM ELEMENT EXAMPLES
+      // -------------------------------
+
+      // Hide element
+      function hideBox() {
+        document.getElementById("box").style.display = "none";
+      }
+
+      // Show element
+      function showBox() {
+        document.getElementById("box").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

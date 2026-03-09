@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Function Declaration vs Expression</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      .box {
+        background: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #ff9933;
+      }
+      button {
+        padding: 8px 15px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      .output {
+        margin-top: 10px;
+        background: #e8f5e9;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript: Function Declaration vs Function Expression</h2>
+
+    <!-- ========================= -->
+    <!-- SECTION 1: DECLARATION -->
+    <!-- ========================= -->
+
+    <div class="box">
+      <h3>1️⃣ Function Declaration (Hoisted)</h3>
+
+      <!-- Function Declaration -->
+      <script>
+        // Function Declaration
+        // This function is hoisted (can be called before definition)
+
+        function greetDeclaration(name) {
+          return "Namaste, " + name + " 🙏 Welcome to India!";
+        }
+      </script>
+
+      <input
+        type="text"
+        id="name1"
+        placeholder="Enter your name (e.g., Rahul)"
+      />
+      <button onclick="callDeclaration()">Test Declaration</button>
+
+      <div id="output1" class="output"></div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- SECTION 2: EXPRESSION -->
+    <!-- ========================= -->
+
+    <div class="box">
+      <h3>2️⃣ Function Expression (Not Hoisted)</h3>
+
+      <script>
+        // Function Expression
+        // Function is stored inside a variable
+        // It is NOT hoisted like declaration
+
+        const greetExpression = function (name) {
+          return "Hello, " + name + "! 🇮🇳 Enjoy your coding journey!";
+        };
+      </script>
+
+      <input
+        type="text"
+        id="name2"
+        placeholder="Enter your name (e.g., Priya)"
+      />
+      <button onclick="callExpression()">Test Expression</button>
+
+      <div id="output2" class="output"></div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- SECTION 3: HOISTING DEMO -->
+    <!-- ========================= -->
+
+    <div class="box">
+      <h3>3️⃣ Hoisting Demonstration</h3>
+
+      <button onclick="testHoisting()">Check Hoisting Behavior</button>
+
+      <div id="output3" class="output"></div>
+    </div>
+
+    <script>
+      // =============================================
+      // Calling Function Declaration
+      // =============================================
+
+      function callDeclaration() {
+        // Get value from input box
+        let name = document.getElementById("name1").value || "Guest";
+
+        // Call declared function
+        let result = greetDeclaration(name);
+
+        // Display result
+        document.getElementById("output1").innerHTML = result;
+      }
+
+      // =============================================
+      // Calling Function Expression
+      // =============================================
+
+      function callExpression() {
+        let name = document.getElementById("name2").value || "Guest";
+
+        // Calling function expression
+        let result = greetExpression(name);
+
+        document.getElementById("output2").innerHTML = result;
+      }
+
+      // =============================================
+      // Hoisting Example
+      // =============================================
+
+      function testHoisting() {
+        let message = "";
+
+        // Function Declaration Hoisting
+        try {
+          message += "Declaration works before definition: ";
+          message += hoistedFunction() + "<br>";
+        } catch (error) {
+          message += "Declaration Error: " + error.message + "<br>";
+        }
+
+        // Function Expression Hoisting
+        try {
+          message += "Expression works before definition: ";
+          message += notHoistedFunction() + "<br>";
+        } catch (error) {
+          message += "Expression Error: " + error.message + "<br>";
+        }
+
+        document.getElementById("output3").innerHTML = message;
+      }
+
+      // This function is hoisted
+      function hoistedFunction() {
+        return "Yes! I am hoisted 🚀";
+      }
+
+      // This is function expression (NOT hoisted)
+      const notHoistedFunction = function () {
+        return "I am NOT hoisted ❌";
+      };
+    </script>
+  </body>
+</html>

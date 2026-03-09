@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Array Methods Demo (India Context)</title>
+  </head>
+  <body>
+    <h2>JavaScript Arrays Demo - Indian Context</h2>
+
+    <p>Open the browser console (Press F12 → Console) to see results.</p>
+
+    <script>
+      // --------------------------------------------------
+      // 1. Creating an Array
+      // Example: List of popular Indian cities
+      // --------------------------------------------------
+
+      let cities = ["Delhi", "Mumbai", "Hyderabad", "Chennai", "Bengaluru"];
+
+      console.log("Original Cities Array:", cities);
+
+      // --------------------------------------------------
+      // 2. Adding Elements (push)
+      // Adds a new city at the end of the array
+      // --------------------------------------------------
+
+      cities.push("Kolkata");
+
+      console.log("After push (Added Kolkata):", cities);
+
+      // --------------------------------------------------
+      // 3. Removing Elements (pop)
+      // Removes last element
+      // --------------------------------------------------
+
+      cities.pop();
+
+      console.log("After pop (Removed last city):", cities);
+
+      // --------------------------------------------------
+      // 4. Array Length
+      // --------------------------------------------------
+
+      console.log("Number of cities:", cities.length);
+
+      // --------------------------------------------------
+      // 5. Iterating through Array (for loop)
+      // --------------------------------------------------
+
+      console.log("Cities using FOR loop:");
+
+      for (let i = 0; i < cities.length; i++) {
+        console.log(cities[i]);
+      }
+
+      // --------------------------------------------------
+      // 6. Iterating using forEach (Callback function)
+      // --------------------------------------------------
+
+      console.log("Cities using forEach (callback):");
+
+      cities.forEach(function (city) {
+        console.log(city);
+      });
+
+      // --------------------------------------------------
+      // Example Array: Prices of Indian Street Foods
+      // --------------------------------------------------
+
+      let foodPrices = [30, 50, 20, 60, 40];
+
+      console.log("Street food prices:", foodPrices);
+
+      // --------------------------------------------------
+      // 7. Finding Minimum Value WITHOUT callback
+      // --------------------------------------------------
+
+      function findMinWithoutCallback(arr) {
+        // Assume first element is minimum
+        let min = arr[0];
+
+        // Loop through the array
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] < min) {
+            min = arr[i];
+          }
+        }
+
+        return min;
+      }
+
+      console.log(
+        "Minimum price WITHOUT callback:",
+        findMinWithoutCallback(foodPrices),
+      );
+
+      // --------------------------------------------------
+      // 8. Finding Minimum Value WITH callback
+      // Using reduce()
+      // --------------------------------------------------
+
+      function findMinCallback(arr) {
+        return arr.reduce(function (min, current) {
+          if (current < min) {
+            return current;
+          } else {
+            return min;
+          }
+        });
+      }
+
+      console.log("Minimum price WITH callback:", findMinCallback(foodPrices));
+
+      // --------------------------------------------------
+      // 9. Using map() to increase prices by 10%
+      // (Example: GST increase)
+      // --------------------------------------------------
+
+      let updatedPrices = foodPrices.map(function (price) {
+        return price * 1.1;
+      });
+
+      console.log("Prices after 10% increase:", updatedPrices);
+
+      // --------------------------------------------------
+      // 10. Using filter()
+      // Find food items costing more than ₹40
+      // --------------------------------------------------
+
+      let costlyFoods = foodPrices.filter(function (price) {
+        return price > 40;
+      });
+
+      console.log("Food items costing more than ₹40:", costlyFoods);
+
+      // --------------------------------------------------
+      // 11. Using find()
+      // Find first item costing more than ₹40
+      // --------------------------------------------------
+
+      let firstCostlyItem = foodPrices.find(function (price) {
+        return price > 40;
+      });
+
+      console.log("First item > ₹40:", firstCostlyItem);
+
+      // --------------------------------------------------
+      // 12. Converting array to string
+      // --------------------------------------------------
+
+      console.log("Cities joined:", cities.join(", "));
+
+      // --------------------------------------------------
+      // 13. Sorting numbers
+      // --------------------------------------------------
+
+      let sortedPrices = [...foodPrices].sort(function (a, b) {
+        return a - b;
+      });
+
+      console.log("Sorted food prices:", sortedPrices);
+    </script>
+  </body>
+</html>

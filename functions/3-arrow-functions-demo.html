@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Arrow Functions vs Normal Functions - JS Demo</title>
+  </head>
+  <body>
+    <h2>JavaScript Arrow Functions Demo (Indian Context)</h2>
+    <p>Open the browser console (Press F12 → Console) to see results.</p>
+
+    <script>
+      // --------------------------------------------------
+      // 1. Basic Function (Normal Syntax)
+      // Example: Greeting function
+      // --------------------------------------------------
+
+      function greetCity(city) {
+        return "Welcome to " + city;
+      }
+
+      console.log("Normal Function:", greetCity("Hyderabad"));
+
+      // --------------------------------------------------
+      // 2. Arrow Function Version
+      // Same functionality using arrow syntax
+      // --------------------------------------------------
+
+      const greetCityArrow = (city) => {
+        return "Welcome to " + city;
+      };
+
+      console.log("Arrow Function:", greetCityArrow("Bengaluru"));
+
+      // --------------------------------------------------
+      // 3. Arrow Function (Short Form)
+      // If only one statement, return keyword is not needed
+      // --------------------------------------------------
+
+      const greetShort = (city) => "Welcome to " + city;
+
+      console.log("Arrow Short Form:", greetShort("Mumbai"));
+
+      // --------------------------------------------------
+      // Example Array: Indian Cities
+      // --------------------------------------------------
+
+      let cities = ["Delhi", "Mumbai", "Chennai", "Hyderabad", "Kolkata"];
+
+      // --------------------------------------------------
+      // 4. Using map() with Normal Function
+      // Convert city names to uppercase
+      // --------------------------------------------------
+
+      let upperCitiesNormal = cities.map(function (city) {
+        return city.toUpperCase();
+      });
+
+      console.log("Uppercase Cities (Normal Function):", upperCitiesNormal);
+
+      // --------------------------------------------------
+      // 5. Using map() with Arrow Function
+      // --------------------------------------------------
+
+      let upperCitiesArrow = cities.map((city) => city.toUpperCase());
+
+      console.log("Uppercase Cities (Arrow Function):", upperCitiesArrow);
+
+      // --------------------------------------------------
+      // Example Array: Street Food Prices
+      // --------------------------------------------------
+
+      let foodPrices = [20, 30, 50, 40, 60];
+
+      // --------------------------------------------------
+      // 6. Filter prices greater than ₹40 (Normal Function)
+      // --------------------------------------------------
+
+      let expensiveNormal = foodPrices.filter(function (price) {
+        return price > 40;
+      });
+
+      console.log("Expensive Food (Normal Function):", expensiveNormal);
+
+      // --------------------------------------------------
+      // 7. Filter prices greater than ₹40 (Arrow Function)
+      // --------------------------------------------------
+
+      let expensiveArrow = foodPrices.filter((price) => price > 40);
+
+      console.log("Expensive Food (Arrow Function):", expensiveArrow);
+
+      // --------------------------------------------------
+      // Example: Cricket Scores
+      // --------------------------------------------------
+
+      let scores = [45, 80, 120, 60, 30];
+
+      // --------------------------------------------------
+      // 8. Calculate total score (Normal Function using reduce)
+      // --------------------------------------------------
+
+      let totalNormal = scores.reduce(function (total, score) {
+        return total + score;
+      });
+
+      console.log("Total Score (Normal Function):", totalNormal);
+
+      // --------------------------------------------------
+      // 9. Calculate total score (Arrow Function)
+      // --------------------------------------------------
+
+      let totalArrow = scores.reduce((total, score) => total + score);
+
+      console.log("Total Score (Arrow Function):", totalArrow);
+
+      // --------------------------------------------------
+      // 10. Function with Multiple Parameters
+      // Example: Calculate GST on product
+      // --------------------------------------------------
+
+      // Normal Function
+      function calculateGST(price, gstRate) {
+        return price + (price * gstRate) / 100;
+      }
+
+      console.log("Price with GST (Normal):", calculateGST(100, 18));
+
+      // Arrow Function
+      const calculateGSTArrow = (price, gstRate) =>
+        price + (price * gstRate) / 100;
+
+      console.log("Price with GST (Arrow):", calculateGSTArrow(100, 18));
+    </script>
+  </body>
+</html>

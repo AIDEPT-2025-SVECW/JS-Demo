@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Function & Parameter Types Demo</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      .section {
+        background: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-left: 5px solid orange;
+        border-radius: 8px;
+      }
+      button {
+        padding: 6px 12px;
+        margin-top: 8px;
+        cursor: pointer;
+      }
+      .output {
+        margin-top: 10px;
+        background: #e8f5e9;
+        padding: 8px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🇮🇳 JavaScript Function Types & Parameter Types</h2>
+
+    <!-- ===================================================== -->
+    <!-- 1️⃣ FUNCTION DECLARATION + NORMAL PARAMETERS -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+      <h3>1️⃣ Function Declaration (Normal Parameters)</h3>
+
+      <script>
+        // Function Declaration
+        // Can be called before or after definition (Hoisted)
+
+        function greetStudent(name, college) {
+          return "Namaste " + name + " from " + college + " 🙏";
+        }
+      </script>
+
+      <button onclick="testDeclaration()">Test Declaration</button>
+      <div id="out1" class="output"></div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 2️⃣ DEFAULT PARAMETERS (Function Expression) -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+      <h3>2️⃣ Function Expression (Default Parameters)</h3>
+
+      <script>
+        // Function Expression
+        // Stored inside a variable
+        // Not hoisted like declaration
+
+        const calculateFee = function (name, fee = 50000) {
+          // If fee is not passed, default value ₹50000 is used
+          return name + " needs to pay ₹" + fee;
+        };
+      </script>
+
+      <button onclick="testDefault()">Test Default Parameter</button>
+      <div id="out2" class="output"></div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 3️⃣ REST PARAMETERS (Collect Multiple Values) -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+      <h3>3️⃣ Function Declaration (Rest Parameters)</h3>
+
+      <script>
+        // Rest parameter collects all remaining arguments into an array
+
+        function totalMarks(studentName, ...marks) {
+          let total = 0;
+
+          // Loop through marks array
+          for (let i = 0; i < marks.length; i++) {
+            total += marks[i];
+          }
+
+          return studentName + " scored total: " + total;
+        }
+      </script>
+
+      <button onclick="testRest()">Test Rest Parameter</button>
+      <div id="out3" class="output"></div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 4️⃣ DESTRUCTURED PARAMETERS -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+      <h3>4️⃣ Destructured Parameters</h3>
+
+      <script>
+        // Instead of receiving full object and using dot notation,
+        // we directly extract needed properties
+
+        function printDetails({ name, city }) {
+          return name + " lives in " + city;
+        }
+      </script>
+
+      <button onclick="testDestructure()">Test Destructuring</button>
+      <div id="out4" class="output"></div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 5️⃣ FUNCTION WITH NO RETURN -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+      <h3>5️⃣ Function with NO Return (Just Performs Action)</h3>
+
+      <script>
+        // This function does not return anything
+        // It only prints message to output
+
+        function announceFestival(festival) {
+          document.getElementById("out5").innerHTML =
+            "Happy " + festival + " to all Indians 🎉";
+        }
+      </script>
+
+      <button onclick="announceFestival('Diwali')">
+        Test No Return Function
+      </button>
+      <div id="out5" class="output"></div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 6️⃣ ARROW FUNCTION -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+      <h3>6️⃣ Arrow Function</h3>
+
+      <script>
+        // Arrow function (modern syntax)
+        // Shorter way to write function expression
+
+        const convertToINR = (dollars) => {
+          const rate = 83; // Assume 1 USD = ₹83
+          return "₹" + dollars * rate;
+        };
+      </script>
+
+      <button onclick="testArrow()">Test Arrow Function</button>
+      <div id="out6" class="output"></div>
+    </div>
+
+    <script>
+      // Calling function declaration
+      function testDeclaration() {
+        let result = greetStudent("Rahul", "IIT Delhi");
+        document.getElementById("out1").innerHTML = result;
+      }
+
+      // Calling function expression with default parameter
+      function testDefault() {
+        let result1 = calculateFee("Priya"); // default fee
+        let result2 = calculateFee("Amit", 75000); // custom fee
+        document.getElementById("out2").innerHTML = result1 + "<br>" + result2;
+      }
+
+      // Calling rest parameter function
+      function testRest() {
+        let result = totalMarks("Ananya", 85, 90, 88);
+        document.getElementById("out3").innerHTML = result;
+      }
+
+      // Calling destructured parameter function
+      function testDestructure() {
+        let studentObj = {
+          name: "Vikram",
+          city: "Hyderabad",
+        };
+
+        let result = printDetails(studentObj);
+        document.getElementById("out4").innerHTML = result;
+      }
+
+      // Calling arrow function
+      function testArrow() {
+        let result = convertToINR(10); // $10 to INR
+        document.getElementById("out6").innerHTML = "10 USD in INR = " + result;
+      }
+    </script>
+  </body>
+</html>
