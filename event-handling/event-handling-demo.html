@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Handling Demo</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 2px solid black;
+        text-align: center;
+        line-height: 100px;
+        margin-bottom: 20px;
+      }
+
+      input {
+        padding: 8px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body onload="pageLoaded()">
+    <!-- onload event triggers when page is fully loaded -->
+
+    <h1>Event Handling Demo</h1>
+
+    <!-- ---------------- MOUSE EVENTS ---------------- -->
+    <h2>Mouse Events</h2>
+
+    <!-- Box to demonstrate mouse events -->
+    <div
+      class="box"
+      onclick="handleClick()"
+      ondblclick="handleDoubleClick()"
+      onmouseover="handleMouseOver(this)"
+      onmouseout="handleMouseOut(this)"
+    >
+      Hover / Click Me
+    </div>
+
+    <p id="mouseOutput">Mouse event output will appear here</p>
+
+    <!-- ---------------- KEYBOARD EVENTS ---------------- -->
+    <h2>Keyboard Events</h2>
+
+    <!-- Input field to capture keyboard events -->
+    <input
+      type="text"
+      placeholder="Type something..."
+      onkeydown="keyDownEvent(event)"
+      onkeyup="keyUpEvent(event)"
+      onkeypress="keyPressEvent(event)"
+    />
+
+    <p id="keyOutput">Keyboard event output will appear here</p>
+
+    <!-- ---------------- LOAD EVENT ---------------- -->
+    <h2>Load Event</h2>
+    <p id="loadOutput">Waiting for page to load...</p>
+
+    <script>
+      // =====================================
+      // LOAD EVENT FUNCTION
+      // =====================================
+      function pageLoaded() {
+        // This runs when entire page is loaded
+        document.getElementById("loadOutput").innerHTML =
+          "Page loaded successfully!";
+      }
+
+      // =====================================
+      // MOUSE EVENTS
+      // =====================================
+
+      function handleClick() {
+        // Triggered when user clicks
+        document.getElementById("mouseOutput").innerHTML =
+          "Mouse Click Event Triggered";
+      }
+
+      function handleDoubleClick() {
+        // Triggered on double click
+        document.getElementById("mouseOutput").innerHTML =
+          "Mouse Double Click Event Triggered";
+      }
+
+      function handleMouseOver(element) {
+        // Triggered when mouse enters element
+        element.style.backgroundColor = "lightblue";
+
+        document.getElementById("mouseOutput").innerHTML = "Mouse Over Event";
+      }
+
+      function handleMouseOut(element) {
+        // Triggered when mouse leaves element
+        element.style.backgroundColor = "white";
+
+        document.getElementById("mouseOutput").innerHTML = "Mouse Out Event";
+      }
+
+      // =====================================
+      // KEYBOARD EVENTS
+      // =====================================
+
+      function keyDownEvent(event) {
+        // Fires when key is pressed down
+        document.getElementById("keyOutput").innerHTML =
+          "Key Down: " + event.key;
+      }
+
+      function keyUpEvent(event) {
+        // Fires when key is released
+        document.getElementById("keyOutput").innerHTML = "Key Up: " + event.key;
+      }
+
+      function keyPressEvent(event) {
+        // Fires when key produces a character
+        document.getElementById("keyOutput").innerHTML =
+          "Key Press: " + event.key;
+      }
+
+      // =====================================
+      // EXTRA: GLOBAL EVENT LISTENER
+      // =====================================
+
+      // This listens for any click anywhere on page
+      document.addEventListener("click", function () {
+        console.log("Page was clicked somewhere");
+      });
+    </script>
+  </body>
+</html>

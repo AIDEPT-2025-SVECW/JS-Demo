@@ -99,7 +99,7 @@
       // --------------------------------------------------
 
       function findMinCallback(arr) {
-        return arr.reduce(function (min, current) {
+        return arr.reduce((min, current) => {
           if (current < min) {
             return current;
           } else {
@@ -115,7 +115,7 @@
       // (Example: GST increase)
       // --------------------------------------------------
 
-      let updatedPrices = foodPrices.map(function (price) {
+      let updatedPrices = foodPrices.map((price) => {
         return price * 1.1;
       });
 
